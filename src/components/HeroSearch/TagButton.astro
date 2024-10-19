@@ -1,0 +1,10 @@
+---
+const props = Astro.props;
+---
+
+<a
+  class="bg-white rounded-full p-4 md:px-6 shadow-sm text-primary transition hover:scale-105 hover:text-white hover:bg-primary"
+  href={props.href}
+>
+  <slot />
+</a>

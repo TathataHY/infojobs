@@ -1,0 +1,53 @@
+---
+import { getStudies } from "@/lib/get-ij-studies";
+import SearchButton from "./SearchButton.astro";
+
+const studies = await getStudies();
+---
+
+<search class="bg-white rounded-3xl p-4">
+  <form action="">
+    <div>
+      <select
+        name=""
+        id=""
+        class="w-full py-4 border-b border-gray-300 text-gray-600"
+      >
+        {
+          studies.map((study) => {
+            const isPlaceholder = study.id === 0;
+            const value = isPlaceholder ? "Nivel de estudios" : study.value;
+
+            return (
+              <option
+                value={study.key}
+                selected={isPlaceholder}
+                disabled={isPlaceholder}
+              >
+                {value}
+              </option>
+            );
+          })
+        }
+      </select>
+    </div>
+
+    <div>
+      <input
+        type="text"
+        placeholder="Estudios, puesto, empresa..."
+        class="w-full py-4 border-b border-gray-300 text-gray-600"
+      />
+    </div>
+
+    <div class="mb-8">
+      <input
+        type="text"
+        placeholder="Provincia o población"
+        class="w-full py-4 text-gray-600"
+      />
+    </div>
+
+    <SearchButton />
+  </form>
+</search>

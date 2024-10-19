@@ -1,0 +1,30 @@
+---
+import TagButton from "./TagButton.astro";
+
+const SHORTCUTS = [
+  {
+    label: "🌱  Sin experiencia",
+    href: "https://www.infojobs.net/jobsearch/search-results/list.xhtml?keyword=&segmentId=&page=1&sortBy=PUBLICATION_DATE&onlyForeignCountry=false&countryIds=17&sinceDate=ANY&experienceMin=_0_YEARS&experienceMax=_0_YEARS",
+  },
+  {
+    label: "🗓️  Findes",
+    href: "https://www.infojobs.net/ofertas-trabajo/fines-de-semana",
+  },
+  {
+    label: "🕒  Media jornada",
+    href: "https://www.infojobs.net/ofertas-trabajo/media-jornada",
+  },
+  {
+    label: "💼  Prácticas",
+    href: "https://www.infojobs.net/ofertas-trabajo/practicas",
+  },
+] as const;
+---
+
+<div class="flex flex-wrap gap-4 justify-around md:justify-center">
+  {
+    SHORTCUTS.map((shortcut) => (
+      <TagButton href={shortcut.href}>{shortcut.label}</TagButton>
+    ))
+  }
+</div>
